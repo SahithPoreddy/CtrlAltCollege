@@ -1,4 +1,4 @@
-API endpoint requirements for frontend:
+#### API endpoint requirements for frontend:
 i. Blog posts:
     a. When requested at (api/blog/sendPosts), a collection of blog posts should be returned (Ex: 5). Also the comments are requested separtely since sending all the comments along with the posts itself will increase the overhead of the response. For comments being sent dynamically, an post ID and the index of last comment is sent. The comments following are to be sent back to the client. The details sent for blog post are:
         I. Username
