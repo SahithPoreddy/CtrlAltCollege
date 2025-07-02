@@ -1,9 +1,25 @@
-const express = require('express');
+const express = require("express");
+const dotenv = require("dotenv");
 const app = express();
-import coreRouter from './coreRouter';
+const { connectDatabase } = require("./config/database.js")
 
-app.get('/', (req, res) => {
-    res.json("Test OK");
+// load environment variables
+dotenv.config({ path: "./config/config.env"});
+
+// connect database.
+connectDatabase();
+
+// middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Health check route
+app.get('/health', (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Server is live."
+    })
 });
 
-app.listen(6969);
+const port = process.env.PORT || 6969;
+app.listen(port, () => console.log(`Backend server is running at port ${port}`));
