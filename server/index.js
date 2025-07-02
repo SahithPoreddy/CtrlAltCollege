@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cors = require("cors");
 const app = express();
 const { connectDatabase } = require("./config/database.js")
 
@@ -12,6 +13,12 @@ connectDatabase();
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// cors configuration
+app.use(cors({
+    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    credentials: true
+}));
 
 // Health check route
 app.get('/health', (req, res) => {
