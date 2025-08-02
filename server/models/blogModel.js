@@ -34,19 +34,16 @@ const blogSchema = new mongoose.Schema({
   comment_count: {
     type: Number,
     default: 0
+  },
+  
+  isDeleted: {
+    type: Boolean,
+    default: false
   }
 
 }, 
 { 
     timestamps: true
 });
-
-blogSchema.pre("validate", function(next) {
-    if (!this.title && !this.body && !this.images) {
-        next(new Error("Blog must have either a Title or Body or Images"));
-    } else {
-        next();
-    }
-})
 
 module.exports = mongoose.model("Blog", blogSchema);
