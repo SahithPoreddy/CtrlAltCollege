@@ -7,6 +7,11 @@ const blogCommentSchema = new mongoose.Schema({
     required: true
   },
 
+  isDeleted: {
+    type: Boolean,
+    default: false
+  },
+  
   comment_by: {
     type: String, // "[deleted]" if commenter deletes their account
     required: true

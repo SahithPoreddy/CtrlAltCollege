@@ -1,9 +1,13 @@
 {
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.850.0",
+    "@clerk/backend": "^2.5.0",
+    "@clerk/express": "^1.7.10",
     "cors": "^2.8.5",
     "dotenv": "^17.0.1",
     "express": "^4.19.2",
-    "mongoose": "^8.16.1"
+    "mongoose": "^8.16.1",
+    "multer": "^2.0.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
